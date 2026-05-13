@@ -1,7 +1,19 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
+import sqlite3
 
+# Função para garantir que o banco e a tabela existam na nuvem
+def setup_database():
+    conn = sqlite3.connect('monitoria.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE IF NOT EXISTS monitorias 
+                 (id INTEGER PRIMARY KEY AUTOINCREMENT, disciplina TEXT, monitor TEXT, data TEXT, local TEXT)''')
+    conn.commit()
+    conn.close()
+
+# Executa a criação assim que o app inicia
+setup_database()
 # Configuração da Página
 st.set_page_config(page_title="Sistema de Monitoria UniRuy", layout="centered")
 
