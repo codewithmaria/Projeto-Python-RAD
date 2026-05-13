@@ -17,10 +17,10 @@ Conforme solicitado no barema:
 * **Cloud**: Hospedado via Streamlit Cloud / Railway.
 
 ##  Como rodar o projeto localmente
-1. Clone o repositório: `git clone [SEU_LINK_AQUI]`
+1. Clone o repositório: `git clone [https://github.com/codewithmaria/Projeto-Python-RAD]`
 2. Instale as dependências: `pip install -r requirements.txt`
 3. Execute o app: `streamlit run app.py`
 
 ## 🔗 Links Oficiais do Projeto
 * **Aplicação em Nuvem**: [https://projeto-python-rad-ktnzlvqcljhockrzfzp73u.streamlit.app/]
-* **Repositório GitHub**: []
+* **Repositório GitHub**: [https://github.com/codewithmaria/Projeto-Python-RAD]
