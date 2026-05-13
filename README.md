@@ -1,7 +1,6 @@
 # Sistema de Gerenciamento de Monitoria
 
-Este projeto é uma aplicação Web desenvolvida em **Python** para a disciplina **Python RAD**, ministrada pelo Prof.
-[cite_start]Heleno Cardoso.
+Este projeto é uma aplicação Web desenvolvida em **Python** para a disciplina **Python RAD**, ministrada pelo Prof. Heleno Cardoso.
 
 ## Funcionalidades (Requisitos Funcionais)
 Conforme solicitado no barema:
