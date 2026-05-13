@@ -25,7 +25,7 @@ if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
 
 if not st.session_state['logged_in']:
-    st.title("🔐 Login - Monitoria UniRuy")
+    st.title("Agendamento de monitoria - UniRuy")
     user = st.text_input("Usuário")
     pwd = st.text_input("Senha", type="password")
     if st.button("Entrar"):
@@ -43,16 +43,16 @@ else:
     c = conn.cursor()
 
     if menu == "Dashboard":
-        st.title("📚 RF1: Visualizar Horários")
+        st.title("Visualizar horários")
         df = pd.read_sql_query("SELECT * FROM monitorias", conn)
         st.table(df)
 
     elif menu == "Cadastrar Monitoria":
-        st.title("➕ RF2: Cadastrar (Create)")
+        st.title("Efetuar cadastro")
         disciplina = st.text_input("Nome da Disciplina")
         monitor = st.text_input("Nome do Monitor")
         data = st.date_input("Data da Sessão")
-        local = st.selectbox("Local", ["Laboratório A", "Auditório", "Sala 202"])
+        local = st.selectbox("Local", ["Laboratório 1", "Laboratório 2","Auditório", "Sala 202", "Sala 8 - Térreo"])
         
         if st.button("Salvar"):
             c.execute("INSERT INTO monitorias (disciplina, monitor, data, local) VALUES (?,?,?,?)", 
@@ -61,7 +61,7 @@ else:
             st.success("Monitoria agendada!")
 
     elif menu == "Gerenciar/Excluir":
-        st.title("⚙️ RF3: Gerenciar (Delete/Update)")
+        st.title(" Gerenciar monitorias")
         df = pd.read_sql_query("SELECT * FROM monitorias", conn)
         selected_id = st.selectbox("Selecione o ID para remover", df['id'])
         if st.button("Remover Registro"):
@@ -70,7 +70,7 @@ else:
             st.warning(f"Registro {selected_id} removido.")
 
     elif menu == "Relatório":
-        st.title("📊 RF4: Relatório Opcional")
+        st.title("Relatório")
         df = pd.read_sql_query("SELECT * FROM monitorias", conn)
         st.write(f"Total de monitorias agendadas: {len(df)}")
         st.bar_chart(df['disciplina'].value_counts())
